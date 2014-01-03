@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidConfiguredLogFilters">
+    <filters>
+      <filter>
+        <option name="logLevel" value="verbose" />
+        <option name="logMessagePattern" value="" />
+        <option name="logTagPattern" value="" />
+        <option name="name" value="Eco" />
+        <option name="packageNamePattern" value="thinkbig.telefonica.eco" />
+        <option name="pid" value="" />
+      </filter>
+    </filters>
+  </component>
   <component name="AndroidLayoutPreviewToolWindow">
     <option name="state">
       <GlobalState />
@@ -9,6 +21,17 @@
     <shared>
       <config />
     </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/res/layout/main.xml">
+        <config>
+          <device>Nexus 4</device>
+          <theme>@android:style/Theme.Light.NoTitleBar</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Eco" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="077edd19-ff38-40d1-8d67-25d4cc0d36fb" name="Default" comment="" />
@@ -77,22 +100,49 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/thinkbig/telefonica/eco/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+            <state line="9" column="0" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#507#737#0" expanded="true" />
+                <element signature="e#726#727#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="41" selection-start="2435" selection-end="2435" vertical-scroll-proportion="-0.68" vertical-offset="952" max-vertical-offset="1717">
+              <folding />
+            </state>
+          </provider>
           <provider editor-type-id="android-designer">
             <state />
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/thinkbig/telefonica/eco/MapActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="54" selection-start="428" selection-end="428" vertical-scroll-proportion="0.29032257" vertical-offset="0" max-vertical-offset="527">
-              <folding />
+            <state line="148" column="50" selection-start="6330" selection-end="6330" vertical-scroll-proportion="0.7265416" vertical-offset="2245" max-vertical-offset="4216">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5617#5936#0" expanded="true" />
+                <element signature="e#5921#5922#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DireccionMapa.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/thinkbig/telefonica/eco/modelo/DireccionMapa.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="31" selection-start="1631" selection-end="1631" vertical-scroll-proportion="0.0" vertical-offset="1790" max-vertical-offset="2635">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2692#2700#0" expanded="true" />
+                <element signature="e#4689#4697#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,7 +150,19 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="53" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+            <state line="27" column="39" selection-start="1370" selection-end="1370" vertical-scroll-proportion="0.0" vertical-offset="158" max-vertical-offset="833">
+              <folding>
+                <element signature="e#1209#1227#0" expanded="true" />
+                <element signature="e#1474#1492#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocationActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../checkpoint_final/src/com/android/google/codelab/location/LocationActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="338" column="50" selection-start="12579" selection-end="12579" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="8789">
               <folding />
             </state>
           </provider>
@@ -116,7 +178,15 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/thinkbig/telefonica/eco/MainActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/main.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_map.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/thinkbig/telefonica/eco/modelo/DireccionMapa.java" />
+        <option value="$PROJECT_DIR$/src/thinkbig/telefonica/eco/PopupAdapter.java" />
+        <option value="$PROJECT_DIR$/res/layout/popup.xml" />
+        <option value="$PROJECT_DIR$/src/thinkbig/telefonica/eco/MapActivity.java" />
       </list>
     </option>
   </component>
@@ -153,7 +223,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -170,6 +239,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="HelpYou" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="google-play-services_lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -200,8 +273,87 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HelpYou" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Eco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modelo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HelpYou" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Eco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HelpYou" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Eco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HelpYou" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Eco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-hdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HelpYou" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -212,7 +364,7 @@
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="xpath.settings" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -220,14 +372,16 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../google-play-services_lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../checkpoint_final" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.101:5555" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="thinkbig.telefonica.eco" />
     </key>
   </component>
-  <component name="RunManager" selected="Android Application.HelpYou">
+  <component name="RunManager" selected="Android Application.Eco">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -262,6 +416,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -287,19 +454,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -355,10 +509,31 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="false" name="HelpYou" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="HelpYou" />
-      <option name="ACTIVITY_CLASS" value="thinkbig.telefonica.helpyou.MainActivity" />
+    <configuration default="false" name="Eco" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="Eco" />
+      <option name="ACTIVITY_CLASS" value="thinkbig.telefonica.eco.MainActivity" />
       <option name="MODE" value="specific_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="true" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="true" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <RunnerSettings RunnerId="AndroidDebugRunner" />
+      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="checkpoint_final" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="checkpoint_final" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
@@ -374,8 +549,9 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Android Application.HelpYou" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Android Application.Eco" />
+      <item index="1" class="java.lang.String" itemvalue="Android Application.checkpoint_final" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -383,6 +559,23 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="077edd19-ff38-40d1-8d67-25d4cc0d36fb" name="Default" comment="" />
@@ -392,13 +585,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930514" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290469" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -407,14 +600,16 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32899022" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="29" y="391" width="1324" height="508" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.244713" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32899022" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -438,36 +633,181 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Eclipse/adt-bundle-windows-x86_64-20130729/sdk/extras/google/google_play_services/libproject/google-play-services_lib/src/android/UnusedStub.java">
+    <entry file="file://$PROJECT_DIR$/src/thinkbig/telefonica/eco/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="97" selection-start="291" selection-end="291" vertical-scroll-proportion="0.20169492" vertical-offset="0" max-vertical-offset="590">
-          <folding />
+        <state line="5" column="13" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="357">
+          <folding>
+            <element signature="e#507#737#0" expanded="true" />
+            <element signature="e#726#727#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/thinkbig/telefonica/eco/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/thinkbig/telefonica/eco/MapActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+        <state line="16" column="8" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="357">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5617#5936#0" expanded="true" />
+            <element signature="e#5921#5922#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="53" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+        <state line="38" column="63" selection-start="1992" selection-end="1992" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="799">
+          <folding>
+            <element signature="e#1209#1227#0" expanded="true" />
+            <element signature="e#1474#1492#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../checkpoint_final/src/com/android/google/codelab/location/LocationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="333" column="28" selection-start="12382" selection-end="12382" vertical-scroll-proportion="0.0" vertical-offset="5661" max-vertical-offset="9928">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Eclipse/adt-bundle-windows-x86_64-20130729/sdk/extras/google/google_play_services/libproject/google-play-services_lib/src/android/UnusedStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="97" selection-start="291" selection-end="291" vertical-scroll-proportion="0.20169492" vertical-offset="0" max-vertical-offset="590" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Eclipse/adt-bundle-windows-x86_64-20130729/sdk/platforms/android-18/data/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="17" selection-start="2108" selection-end="2108" vertical-scroll-proportion="0.3322034" vertical-offset="501" max-vertical-offset="3485" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Eclipse/adt-bundle-windows-x86_64-20130729/sdk/platforms/android-18/data/res/values/themes.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="414" column="64" selection-start="27000" selection-end="27000" vertical-scroll-proportion="0.3898305" vertical-offset="6808" max-vertical-offset="31382">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="31" selection-start="82" selection-end="82" vertical-scroll-proportion="0.06017699" vertical-offset="0" max-vertical-offset="565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Eclipse/adt-bundle-windows-x86_64-20130729/sdk/platforms/android-18/android.jar!/android/app/Activity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="28" selection-start="477" selection-end="477" vertical-scroll-proportion="0.31903484" vertical-offset="0" max-vertical-offset="7531">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/thinkbig/telefonica/eco/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <folding>
+            <element signature="e#507#737#0" expanded="true" />
+            <element signature="e#726#727#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../google-play-services_lib/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="32" selection-start="170" selection-end="177" vertical-scroll-proportion="0.13212435" vertical-offset="0" max-vertical-offset="386">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="41" selection-start="2435" selection-end="2435" vertical-scroll-proportion="-0.68" vertical-offset="952" max-vertical-offset="1717">
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../checkpoint_final/src/com/android/google/codelab/location/LocationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="54" selection-start="428" selection-end="428" vertical-scroll-proportion="0.29032257" vertical-offset="0" max-vertical-offset="527">
+        <state line="338" column="50" selection-start="12579" selection-end="12579" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="8789">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../checkpoint_final/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="83" selection-start="309" selection-end="309" vertical-scroll-proportion="0.13212435" vertical-offset="102" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/hospital.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_map.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="13" selection-start="274" selection-end="274" vertical-scroll-proportion="0.2361111" vertical-offset="0" max-vertical-offset="504">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="39" selection-start="1370" selection-end="1370" vertical-scroll-proportion="0.0" vertical-offset="158" max-vertical-offset="833">
+          <folding>
+            <element signature="e#1209#1227#0" expanded="true" />
+            <element signature="e#1474#1492#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/thinkbig/telefonica/eco/modelo/DireccionMapa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="31" selection-start="1631" selection-end="1631" vertical-scroll-proportion="0.0" vertical-offset="1790" max-vertical-offset="2635">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2692#2700#0" expanded="true" />
+            <element signature="e#4689#4697#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/thinkbig/telefonica/eco/PopupAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="4" selection-start="340" selection-end="340" vertical-scroll-proportion="0.33333334" vertical-offset="25" max-vertical-offset="697">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/popup.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="39" selection-start="449" selection-end="449" vertical-scroll-proportion="0.6192053" vertical-offset="0" max-vertical-offset="697">
+          <folding>
+            <element signature="e#570#599#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/thinkbig/telefonica/eco/MapActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="50" selection-start="6330" selection-end="6330" vertical-scroll-proportion="0.7265416" vertical-offset="2245" max-vertical-offset="4216">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5617#5936#0" expanded="true" />
+            <element signature="e#5921#5922#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -535,7 +875,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>google-play-services</last-edited>
+          <last-edited>google-play-services_lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

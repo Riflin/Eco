@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">HelpYou</string>
+    <string name="app_name">Eco</string>
+    <string name="hospitales_cercanos">Hospitales cercanos</string>
+    <string name="llamada_socorro">Llamada de socorro</string>
+    <string name="mostrar_datos">Mostrar datos</string>
 </resources>
