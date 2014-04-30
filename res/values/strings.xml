@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Eco</string>
-    <string name="hospitales_cercanos">Hospitales cercanos</string>
-    <string name="llamada_socorro">Llamada de socorro</string>
-    <string name="mostrar_datos">Mostrar datos</string>
+    <string name="app_name">Eco112</string>
+    <string name="hospitales_cercanos">Hospitales</string>
+    <string name="llamada_socorro">Urgencia</string>
+    <string name="mostrar_datos">Mis datos</string>
+    <string name="desc_flechita">Flechita</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="fecha_nacimiento">Fecha de nacimiento</string>
 </resources>

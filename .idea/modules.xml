@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Eco.iml" filepath="$PROJECT_DIR$/Eco.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../JakeWharton-ActionBarSherlock-5a15d92/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/../JakeWharton-ActionBarSherlock-5a15d92/actionbarsherlock/actionbarsherlock.iml" />
       <module fileurl="file://$PROJECT_DIR$/../checkpoint_final/checkpoint_final.iml" filepath="$PROJECT_DIR$/../checkpoint_final/checkpoint_final.iml" />
       <module fileurl="file://$PROJECT_DIR$/../google-play-services_lib/google-play-services_lib.iml" filepath="$PROJECT_DIR$/../google-play-services_lib/google-play-services_lib.iml" />
     </modules>

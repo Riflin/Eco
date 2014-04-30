@@ -14,29 +14,40 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.*;
+import com.neosistec.utils.logmanager.LogManager;
+import thinkbig.telefonica.eco.database.GestorHospitales;
 import thinkbig.telefonica.eco.modelo.DireccionMapa;
+import thinkbig.telefonica.eco.modelo.Hospital;
 
 import java.util.ArrayList;
 
 
 public class MapActivity extends FragmentActivity {
-    private static final String TAG = MapActivity.class.getName();
+    private final static String TAG = MapActivity.class.getName();
+
+    private final static int REQUEST_CODE = 112;
 
     private GoogleMap map;
     private LocationClient locationClient;
     private LocationCallback mLocationCallback = new LocationCallback();
     private Location currentLocation;
     private Marker posicionActual;
+    private Polyline polyline;
+    private Marker markerActual;
+    private String distancia;
+
+    private LogManager logManager = new LogManager(MapActivity.class.getName());
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
         //Comprobamos que tenemos los servicios de Google instalados (y, si no los tiene, le dirigimos al market para bajarlos)
-        int statusCode = GooglePlayServicesUtil
-                .isGooglePlayServicesAvailable(getBaseContext());
+        int statusCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
 
         if (statusCode == ConnectionResult.SUCCESS) {
             Log.i(TAG, "Tiene Services instalados");
@@ -45,7 +56,7 @@ public class MapActivity extends FragmentActivity {
             //Si puede instalarse los servicios lo enviamos allí.
             if (GooglePlayServicesUtil.isUserRecoverableError(statusCode)) {
                 Dialog errorDialog = GooglePlayServicesUtil.getErrorDialog(statusCode,
-                        this, 1002);
+                        this, REQUEST_CODE);
                 errorDialog.show();
             } else {
                 // Handle unrecoverable error
@@ -60,7 +71,7 @@ public class MapActivity extends FragmentActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
-                case 1002:
+                case REQUEST_CODE:
                     init();
                     break;
 
@@ -81,6 +92,7 @@ public class MapActivity extends FragmentActivity {
             }
         }
 
+        //Si no hay mapa lo creamos
         if (map == null) {
             FragmentManager myFragmentManager = getSupportFragmentManager();
             SupportMapFragment myMapFragment =
@@ -115,19 +127,19 @@ public class MapActivity extends FragmentActivity {
                 posicionActual = map.addMarker(new MarkerOptions().position(new LatLng(38.049694, -1.669925)));
                 posicionActual.setTitle("Está usted aquí");
             }
-            Marker marker = map.addMarker(new MarkerOptions().position(new LatLng(38.10393, -1.86807)));
-            marker.setTitle("Hospital de Caravaca");
-            marker.setSnippet("Av de Prolongación Miguel de Espinosa, 1\n" +
-                    "30400 Caravaca de la Cruz, Murcia\n" +
-                    "968 70 91 00");
-            BitmapDescriptor bm = BitmapDescriptorFactory.fromResource(R.drawable.hospital_small);
-            marker.setIcon(bm);
 
-            marker = map.addMarker(new MarkerOptions().position(new LatLng(37.9331, -1.1637)));
-            marker.setTitle("Hospital Virgen de la Arrixaca");
-            marker.setSnippet("Murcia\n" +
-                    "968 36 95 00");
-            marker.setIcon(bm);
+            ArrayList<Hospital> listaHospitales = GestorHospitales.getInstance(this).getHospitales();
+            for (Hospital hospital : listaHospitales) {
+                Marker marker = map.addMarker(new MarkerOptions().position(new LatLng(hospital.getLatitud(),
+                        hospital.getLongitud())));
+                marker.setTitle(hospital.getNombre());
+                String snippet = hospital.getDireccion() + "\n" + hospital.getCiudad() + "\n" + hospital.getTelefono();
+                marker.setSnippet(snippet);
+
+                BitmapDescriptor bm = BitmapDescriptorFactory.fromResource(R.drawable.hospital_small);
+                marker.setIcon(bm);
+            }
+
 
             map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                 @Override
@@ -139,22 +151,52 @@ public class MapActivity extends FragmentActivity {
                 }
             });
         }
+
+        /*Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocationName("hospitales", 500, 37.37, -2.42,38.66, 0.05);
+            for (Address address : addresses) {
+                Marker marker = map.addMarker(new MarkerOptions().position(new LatLng(address.getLatitude(),
+                        address.getLongitude())));
+                marker.setTitle(address.getFeatureName());
+                String snippet = address.getAddressLine(0) + "\n" + address.getLocality() + "\n" + address.getPhone();
+                marker.setSnippet(snippet);
+
+                BitmapDescriptor bm = BitmapDescriptorFactory.fromResource(R.drawable.hospital_small);
+                marker.setIcon(bm);
+            }
+        } catch (IOException e) {
+            logManager.error("EXCEPTION: " + e.getMessage());
+        }*/
     }
 
     private void showDistance(Marker marker) {
-        DireccionMapa direccionMapa = new DireccionMapa(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
+        if (polyline != null) {
+            polyline.remove();
+        }
+        DireccionMapa direccionMapa = new DireccionMapa(new LatLng(currentLocation.getLatitude(),
+                currentLocation.getLongitude()),
                 marker.getPosition());
 
-        marker.setSnippet(marker.getSnippet().concat("\nDistancia: " + direccionMapa.getDistancia()+"\n")
-                .concat("Duración aproximada: " + direccionMapa.getDuracion()));
+        if (markerActual != null) {
+            markerActual.setSnippet(markerActual.getSnippet().replace(distancia, ""));
+        }
+        distancia = "\nDistancia: " + direccionMapa.getDistancia() + "\n"
+                .concat("Duración aproximada: " + direccionMapa.getDuracion());
+
+        marker.setSnippet(marker.getSnippet().concat(distancia));
+
+        markerActual = marker;
+
         ArrayList<LatLng> directionPoint = direccionMapa.getRuta();
         PolylineOptions rectLine = new PolylineOptions().width(3).color(Color.RED);
 
-        for(int i = 0 ; i < directionPoint.size() ; i++) {
-            rectLine.add(directionPoint.get(i));
+        for (LatLng puntoRuta : directionPoint) {
+            rectLine.add(puntoRuta);
         }
 
-        map.addPolyline(rectLine);
+
+        polyline = map.addPolyline(rectLine);
 
     }
 
