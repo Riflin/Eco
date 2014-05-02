@@ -37,12 +37,14 @@ public class DBTables {
         public static final String NOMBRE = "Nombre";
         public static final String TIPO_EMERGENCIA = "Tipo_Emergencia";
         public static final String TEXTO = "Texto_a_enviar";
+        public static final String IMAGEN = "Icono";
 
         public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" +
                 ID + " INTEGER NOT NULL CONSTRAINT pk_emergencias PRIMARY KEY AUTOINCREMENT, " +
                 NOMBRE + " TEXT NOT NULL, " +
                 TIPO_EMERGENCIA + " INTEGER NOT NULL DEFAULT 1, " +
-                TEXTO + " TEXT NOT NULL)";
+                TEXTO + " TEXT NOT NULL, " +
+                IMAGEN + " INTEGER NOT NULL DEFAULT 0)";
 
         public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     }

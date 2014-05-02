@@ -8,14 +8,22 @@ import android.os.Parcelable;
  */
 public class Emergencia implements Parcelable {
 
-    private String nombre;
-    private String tipoEmergencia;
-    private String texto;
+    public static class TipoEmergencia {
+        public static final int AMBULANCIA = 1;
+        public static final int POLICIA = 2;
+        public static final int BOMBEROS = 3;
+    }
 
-    public Emergencia(String nombre, String tipoEmergencia, String texto) {
+    private String nombre;
+    private int tipoEmergencia;
+    private String texto;
+    private int imageResource;
+
+    public Emergencia(String nombre, int tipoEmergencia, String texto, int imageResource) {
         this.nombre = nombre;
         this.tipoEmergencia = tipoEmergencia;
         this.texto = texto;
+        this.imageResource = imageResource;
     }
 
     public String getNombre() {
@@ -26,11 +34,11 @@ public class Emergencia implements Parcelable {
         this.nombre = nombre;
     }
 
-    public String getTipoEmergencia() {
+    public int getTipoEmergencia() {
         return tipoEmergencia;
     }
 
-    public void setTipoEmergencia(String tipoEmergencia) {
+    public void setTipoEmergencia(int tipoEmergencia) {
         this.tipoEmergencia = tipoEmergencia;
     }
 
@@ -40,6 +48,14 @@ public class Emergencia implements Parcelable {
 
     public void setTexto(String texto) {
         this.texto = texto;
+    }
+
+    public int getImageResource() {
+        return imageResource;
+    }
+
+    public void setImageResource(int imageResource) {
+        this.imageResource = imageResource;
     }
 
     @Override
@@ -59,14 +75,16 @@ public class Emergencia implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.nombre);
-        dest.writeString(this.tipoEmergencia);
+        dest.writeInt(this.tipoEmergencia);
         dest.writeString(this.texto);
+        dest.writeInt(this.imageResource);
     }
 
     private Emergencia(Parcel in) {
         this.nombre = in.readString();
-        this.tipoEmergencia = in.readString();
+        this.tipoEmergencia = in.readInt();
         this.texto = in.readString();
+        this.imageResource = in.readInt();
     }
 
     public static Creator<Emergencia> CREATOR = new Creator<Emergencia>() {

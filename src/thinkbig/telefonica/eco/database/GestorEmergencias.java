@@ -36,19 +36,26 @@ public class GestorEmergencias {
         db.endTransaction();
     }
 
-    public ArrayList<Emergencia> getEmergenciasByTipo(String tipoEmergencia) {
+    /**
+     * Nos devuelve una lista con todas las emergencias disponibles según el tipo de urgencia sufrida (Policía,
+     * Bomberos o Ambulancia)
+     * @param tipoEmergencia    Tipo de emergencia sufrida (bomberos, policía o ambulancia)
+     * @return  Un ArrayList con las emergencias disponibles en esa categoría. En caso de no haber nos devolverá
+     *          una lista vacía (NO null).
+     */
+    public ArrayList<Emergencia> getEmergenciasByTipo(int tipoEmergencia) {
         ArrayList<Emergencia> listaEmergencias = new ArrayList<Emergencia>();
 
-        String where = DBTables.TEmergencias.TIPO_EMERGENCIA + "=?";
-        String[] args = new String[]{tipoEmergencia};
+        String where = DBTables.TEmergencias.TIPO_EMERGENCIA + "=" + tipoEmergencia;
 
-        Cursor c = db.query(DBTables.TEmergencias.TABLE_NAME, null, where, args, null, null, null);
+        Cursor c = db.query(DBTables.TEmergencias.TABLE_NAME, null, where, null, null, null, null);
         if (c != null) {
             while (c.moveToNext()) {
                 String nombre = c.getString(c.getColumnIndex(DBTables.TEmergencias.NOMBRE));
                 String texto = c.getString(c.getColumnIndex(DBTables.TEmergencias.TEXTO));
+                int imageResource = c.getInt(c.getColumnIndex(DBTables.TEmergencias.IMAGEN));
 
-                listaEmergencias.add(new Emergencia(nombre, tipoEmergencia, texto));
+                listaEmergencias.add(new Emergencia(nombre, tipoEmergencia, texto, imageResource));
             }
             c.close();
         }
@@ -60,6 +67,7 @@ public class GestorEmergencias {
         values.put(DBTables.TEmergencias.NOMBRE, emergencia.getNombre());
         values.put(DBTables.TEmergencias.TEXTO, emergencia.getTexto());
         values.put(DBTables.TEmergencias.TIPO_EMERGENCIA, emergencia.getTipoEmergencia());
+        values.put(DBTables.TEmergencias.IMAGEN, emergencia.getImageResource());
         return values;
     }
 }

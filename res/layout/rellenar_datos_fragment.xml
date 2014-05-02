@@ -19,15 +19,6 @@
             android:textColor="@android:color/black"/>
 
         <EditText
-            android:id="@+id/etApellido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/apellidos"
-            android:inputType="textPersonName"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"/>
-
-        <EditText
             android:id="@+id/etFechaNacimiento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,21 +26,75 @@
             android:textSize="14sp"
             android:textColor="@android:color/black"/>
 
+        <EditText
+            android:id="@+id/etContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/persona_contacto"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/etTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/telefono_contacto"
+            android:inputType="phone"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"/>
+
+        <EditText
+            android:id="@+id/etAlergias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:hint="@string/alergias"/>
+
+        <CheckBox
+            android:id="@+id/cbDiabetes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:text="@string/padece_diabetes"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="3"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_weight="2"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:text="@string/grupo_sanguineo"/>
 
             <Spinner
-                android:layout_width="wrap_content"
+                android:id="@+id/spGrupoSanguineo"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:dropDownSelector="@color/blue_eco"/>
         </LinearLayout>
+
+        <EditText
+            android:id="@+id/etConsideracionesEspeciales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:hint="@string/consideraciones_especiales_salud"/>
+
+        <Button
+            android:id="@+id/btAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/guardar"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
     </LinearLayout>
 </ScrollView>

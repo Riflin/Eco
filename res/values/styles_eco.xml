@@ -19,7 +19,7 @@
 
 <resources>
 
-    <style name="Theme.Eco" parent="@style/Theme.Sherlock.Light">
+    <!--<style name="Theme.Eco" parent="@style/Theme.Sherlock.Light">
         <item name="actionBarItemBackground">@drawable/selectable_background_eco</item>
         <item name="popupMenuStyle">@style/PopupMenu.Eco</item>
         <item name="dropDownListViewStyle">@style/DropDownListView.Eco</item>
@@ -31,7 +31,7 @@
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Eco</item>
 
         
-    </style>
+    </style>-->
 
     <style name="ActionBar.Solid.Eco" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">
         <item name="background">@drawable/ab_solid_eco</item>
@@ -76,5 +76,47 @@
         <item name="popupMenuStyle">@style/PopupMenu.Eco</item>
         <item name="dropDownListViewStyle">@style/DropDownListView.Eco</item>
     </style>
+
+    <style name="EditTextEco" parent="android:Widget.EditText">
+        <item name="android:background">@drawable/eco_edit_text_holo_light</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="CheckBoxEco" parent="android:Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/eco_btn_check_holo_light</item>
+    </style>
+
+    <style name="ButtonEco" parent="android:Widget.Button">
+        <item name="android:background">@drawable/eco_btn_default_holo_light</item>
+        <item name="android:minHeight">48dip</item>
+        <item name="android:minWidth">64dip</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="ImageButtonEco" parent="android:Widget.ImageButton">
+        <item name="android:background">@drawable/eco_btn_default_holo_light</item>
+    </style>
+
+    <style name="SpinnerEco" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/eco_spinner_background_holo_light</item>
+        <item name="android:dropDownSelector">@drawable/eco_list_selector_holo_light</item>
+    </style>
+
+    <style name="SpinnerDropDownItemEco" parent="android:Widget.DropDownItem.Spinner">
+        <item name="android:checkMark">@drawable/eco_btn_radio_holo_light</item>
+    </style>
+    <style name="ListViewEco" parent="android:Widget.ListView">
+        <item name="android:listSelector">@drawable/eco_list_selector_holo_light</item>
+    </style>
+
+    <style name="ListViewEco.White" parent="android:Widget.ListView.White">
+        <item name="android:listSelector">@drawable/eco_list_selector_holo_light</item>
+    </style>
+
+    <style name="SpinnerItemEco" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+
 
 </resources>

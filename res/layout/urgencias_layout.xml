@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/llAmbulancia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/background_list"
+            android:gravity="left"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_weight="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ambulancia"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/llamada_socorro"/>
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ambulancia"
+                android:gravity="left|center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="28sp"
+                android:textColor="@android:color/black"
+                android:paddingLeft="20dp"
+                />
+
+            <ImageView
+                android:layout_weight="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/flechita"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/desc_flechita"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+
+        <LinearLayout
+            android:id="@+id/llPolicia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/background_list"
+            android:gravity="left"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_weight="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/policia_small"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/hospitales_cercanos"/>
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/policia"
+                android:gravity="left|center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="28sp"
+                android:textColor="@android:color/black"
+                android:paddingLeft="20dp"
+                />
+
+            <ImageView
+                android:layout_weight="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/flechita"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/desc_flechita"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+
+        <LinearLayout
+            android:id="@+id/llBomberos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/background_list"
+            android:gravity="left"
+            android:padding="15dp"
+            >
+
+            <ImageView
+                android:layout_weight="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bomberos"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/mostrar_datos"/>
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bomberos"
+                android:gravity="left|center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="28sp"
+                android:textColor="@android:color/black"
+                android:paddingLeft="20dp"
+                />
+
+            <ImageView
+                android:layout_weight="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/flechita"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/desc_flechita"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+
+    </LinearLayout>
+
+</ScrollView>

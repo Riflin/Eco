@@ -1,44 +1,45 @@
 package thinkbig.telefonica.eco;
 
-import android.app.Dialog;
-import android.content.Intent;
+import android.content.*;
 import android.graphics.Color;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.os.IBinder;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.location.LocationClient;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
+import android.support.v4.content.LocalBroadcastManager;
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.*;
 import com.neosistec.utils.logmanager.LogManager;
+import thinkbig.telefonica.eco.adapter.PopupAdapter;
 import thinkbig.telefonica.eco.database.GestorHospitales;
 import thinkbig.telefonica.eco.modelo.DireccionMapa;
 import thinkbig.telefonica.eco.modelo.Hospital;
+import thinkbig.telefonica.eco.service.LocationService;
 
 import java.util.ArrayList;
 
 
-public class MapActivity extends FragmentActivity {
+public class MapActivity extends SherlockFragmentActivity {
     private final static String TAG = MapActivity.class.getName();
 
-    private final static int REQUEST_CODE = 112;
-
     private GoogleMap map;
-    private LocationClient locationClient;
-    private LocationCallback mLocationCallback = new LocationCallback();
     private Location currentLocation;
     private Marker posicionActual;
     private Polyline polyline;
     private Marker markerActual;
     private String distancia;
+
+
+    private LocationService locationService;
+
+    private LocationReceiver locationReceiver = new LocationReceiver();
 
     private LogManager logManager = new LogManager(MapActivity.class.getName());
 
@@ -46,51 +47,36 @@ public class MapActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        //Comprobamos que tenemos los servicios de Google instalados (y, si no los tiene, le dirigimos al market para bajarlos)
-        int statusCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setIcon(R.drawable.logo_small);
+        actionBar.setTitle(getString(R.string.hospitales_cercanos_title));
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
-        if (statusCode == ConnectionResult.SUCCESS) {
-            Log.i(TAG, "Tiene Services instalados");
-            init();
-        } else {
-            //Si puede instalarse los servicios lo enviamos allí.
-            if (GooglePlayServicesUtil.isUserRecoverableError(statusCode)) {
-                Dialog errorDialog = GooglePlayServicesUtil.getErrorDialog(statusCode,
-                        this, REQUEST_CODE);
-                errorDialog.show();
-            } else {
-                // Handle unrecoverable error
-            }
-        }
+        init();
 
+        LocalBroadcastManager.getInstance(this).registerReceiver(locationReceiver, new IntentFilter(EcoApplication.LOCATION_KEY));
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case REQUEST_CODE:
-                    init();
-                    break;
-
-            }
-        }
-    }
 
     /**
      * El locationClient luego habrá que ponerlo en un servicio aparte.
      */
     private void init() {
 
-        if (locationClient == null) {
+        /*if (locationClient == null) {
             locationClient = new LocationClient(this, mLocationCallback, mLocationCallback);
             Log.v(TAG, "Location Client connect");
             if (!(locationClient.isConnected() || locationClient.isConnecting())) {
                 locationClient.connect();
             }
-        }
+        }*/
+
+        //Bindamos el servicio de localización también a esta actividad
+        Intent intent = new Intent(MapActivity.this, LocationService.class);
+        bindService(intent, myConnection, Context.BIND_AUTO_CREATE);
 
         //Si no hay mapa lo creamos
         if (map == null) {
@@ -99,7 +85,20 @@ public class MapActivity extends FragmentActivity {
                     (SupportMapFragment) myFragmentManager.findFragmentById(R.id.mapa);
             map = myMapFragment.getMap();
 
-            map.setInfoWindowAdapter(new PopupAdapter(getLayoutInflater()));
+            map.setInfoWindowAdapter(new PopupAdapter(MapActivity.this));
+            map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                @Override
+                public void onInfoWindowClick(Marker marker) {
+                    Hospital hospital = GestorHospitales.getInstance(MapActivity.this).getHospitalByLatLng(marker
+                            .getPosition());
+                    if (hospital != null && hospital.getTelefono() != null) {
+                        Intent intent = new Intent(Intent.ACTION_CALL);
+
+                        intent.setData(Uri.parse("tel:" + hospital.getTelefono()));
+                        startActivity(intent);
+                    }
+                }
+            });
         }
         //Una vez inicializamos el mapa empezamos a trabajar con él
         if (map!=null) {
@@ -115,19 +114,9 @@ public class MapActivity extends FragmentActivity {
                 posicionActual = map.addMarker(new MarkerOptions().position(new LatLng(currentLocation.getLatitude(),
                         currentLocation.getLongitude())));
                 posicionActual.setTitle("Está usted aquí");
-            } else {
-                //Ponemos un marcador en mi casa de Bullas
-                CameraPosition cameraPosition = new CameraPosition.Builder()
-                        .target(new LatLng(38.049694, -1.669925)).zoom(9).build();
-                currentLocation = new Location("custom");
-                currentLocation.setLatitude(38.049694);
-                currentLocation.setLongitude(-1.669925);
-
-                map.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                posicionActual = map.addMarker(new MarkerOptions().position(new LatLng(38.049694, -1.669925)));
-                posicionActual.setTitle("Está usted aquí");
             }
 
+            //TODO Poner esto en un asynctask
             ArrayList<Hospital> listaHospitales = GestorHospitales.getInstance(this).getHospitales();
             for (Hospital hospital : listaHospitales) {
                 Marker marker = map.addMarker(new MarkerOptions().position(new LatLng(hospital.getLatitud(),
@@ -200,86 +189,94 @@ public class MapActivity extends FragmentActivity {
 
     }
 
-    private class LocationCallback implements GooglePlayServicesClient.ConnectionCallbacks, GooglePlayServicesClient.OnConnectionFailedListener,
-            LocationListener {
 
-        @Override
-        public void onConnected(Bundle connectionHint) {
-            Log.v(TAG, "Location Client connected");
+    private ServiceConnection myConnection = new ServiceConnection() {
 
-            // Display last location
-            Location location = locationClient.getLastLocation();
-            if (location != null) {
-                handleLocation(location);
-            }
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+            LocationService.MyBinder binder = (LocationService.MyBinder) service;
+            locationService = binder.getService();
 
-            // Request for location updates
-            LocationRequest request = LocationRequest.create();
-            request.setInterval(5000);
-            request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-            locationClient.requestLocationUpdates(request, mLocationCallback);
-        }
-
-        @Override
-        public void onDisconnected() {
-            Log.v(TAG, "Location Client disconnected by the system");
-        }
-
-        @Override
-        public void onConnectionFailed(ConnectionResult result) {
-            Log.v(TAG, "Location Client connection failed");
-        }
-
-        @Override
-        public void onLocationChanged(Location location) {
-            if (location == null) {
-                Log.v(TAG, "onLocationChanged: location == null");
-                return;
-            }
-            // Add a marker iff location has changed.
-            if (currentLocation != null &&
-                    currentLocation.getLatitude() == location.getLatitude() &&
-                    currentLocation.getLongitude() == location.getLongitude()) {
-                return;
-            }
+            //Sacamos la localización que tiene actualmente el servicio
+            Location location = locationService.getCurrentLocation();
 
             handleLocation(location);
         }
 
-        private void handleLocation(Location location) {
-            // Update the mLocationStatus with the lat/lng of the location
-            Log.v(TAG, "LocationChanged == @" +
-                    location.getLatitude() + "," + location.getLongitude());
+        public void onServiceDisconnected(ComponentName arg0) {
+            logManager.onServiceDisconnected();
+        }
 
-            // Add a marker of that location to the map
-            LatLng latlongzoom = new LatLng(location.getLatitude(),
-                    location.getLongitude());
-            String snippet = location.getLatitude() + "," + location.getLongitude();
-            //La quitamos para que no vaya saliendo más de una vez
+    };
+
+    private void handleLocation(Location location) {
+        // Add a marker of that location to the map
+        LatLng latlongzoom = new LatLng(location.getLatitude(),
+                location.getLongitude());
+        String snippet = location.getLatitude() + "," + location.getLongitude();
+        //La quitamos para que no vaya saliendo más de una vez
+        if (posicionActual != null) {
             posicionActual.remove();
+        }
 
-            //Y ponemos la nueva
-            posicionActual = map.addMarker(
-                    new MarkerOptions().position(latlongzoom));
-            posicionActual.setSnippet(snippet);
+        //Y ponemos la nueva
+        posicionActual = map.addMarker(new MarkerOptions().position(latlongzoom));
+        posicionActual.setSnippet(snippet);
+        posicionActual.setTitle("Está usted aquí");
+
+
+        // Center the map to the first marker
+        if (currentLocation == null) {
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(latlongzoom).zoom(9).build();
+
+            map.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            posicionActual = map.addMarker(new MarkerOptions().position(latlongzoom));
             posicionActual.setTitle("Está usted aquí");
 
-
-            // Center the map to the first marker
-            if (currentLocation == null) {
-                map.moveCamera(CameraUpdateFactory.
-                        newCameraPosition(CameraPosition.fromLatLngZoom(
-                                new LatLng(location.getLatitude(), location.getLongitude()),
-                                (float) 16.0)));
-
-            }
-            currentLocation = location;
         }
+        currentLocation = location;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        locationClient.disconnect();
+//        locationClient.disconnect();
+        unbindService(myConnection);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(locationReceiver);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.clear();
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.clear();
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                overridePendingTransition(0,0);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private class LocationReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            logManager.onBroadcastReceived();
+
+            Location location = intent.getParcelableExtra(EcoApplication.LOCATION_KEY);
+
+            handleLocation(location);
+        }
     }
 }

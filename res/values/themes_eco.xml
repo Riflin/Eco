@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Eco" parent="@style/_Eco"/>
+
+    <style name="_Eco" parent="Theme.Sherlock.Light">
+
+        <item name="actionBarItemBackground">@drawable/selectable_background_eco</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Eco</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Eco</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Eco</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Eco</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Eco</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_eco</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_eco</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Eco</item>
+
+        <item name="android:editTextStyle">@style/EditTextEco</item>
+
+        <item name="android:textColorHighlight">#99289ac7</item>
+
+        <item name="android:checkboxStyle">@style/CheckBoxEco</item>
+
+        <item name="android:buttonStyle">@style/ButtonEco</item>
+
+        <item name="android:imageButtonStyle">@style/ImageButtonEco</item>
+
+        <item name="android:spinnerStyle">@style/SpinnerEco</item>
+
+        <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemEco</item>
+
+        <item name="android:listViewStyle">@style/ListViewEco</item>
+
+        <item name="android:listViewWhiteStyle">@style/ListViewEco.White</item>
+
+        <item name="android:spinnerItemStyle">@style/SpinnerItemEco</item>
+
+    </style>
+
+</resources>
